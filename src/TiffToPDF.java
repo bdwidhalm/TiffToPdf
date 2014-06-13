@@ -34,15 +34,24 @@ public class TiffToPDF
       while((line = br.readLine()) != null)
       {
         String[] tokens = line.split("\\|");
-        System.out.println(tokens[0]);
-        System.out.println(tokens[1]);
-        System.out.println(tokens[2]);
+        // System.out.println(tokens[0]);
+        System.out.println("Converting " + tokens[1] + " to " + tokens[2]);
+        // System.out.println(tokens[2]);
         convertTiff(tokens[1], tokens[2]);
       }
+      
+      System.out.println();
+      System.out.println("****************************************");
+      System.out.println(" All files in list have been completed! ");
+      System.out.println("****************************************");
     }
     catch (Exception e)
     {
-      
+      System.out.println();
+      System.out.println("----------------------------------------");
+      System.out.println(" Danger! Danger! Danger! Error occurred! ");
+      System.out.println(e);
+      System.out.println("----------------------------------------");
     }
     
     // convertTiff("/home/brian/Documents/CCITT_1.TIF", "/home/brian/Documents/CCITT_1.pdf");
