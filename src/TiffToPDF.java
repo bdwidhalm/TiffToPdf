@@ -1,6 +1,7 @@
 import java.io.BufferedReader;
 import java.io.FileOutputStream;
 import java.io.FileReader;
+import java.io.InputStreamReader;
 import java.io.RandomAccessFile;
 import java.nio.channels.FileChannel;
 
@@ -16,11 +17,17 @@ public class TiffToPDF
 {
   public static void main(String[] args)
   {
-    String fileList = "/home/brian/Documents/fileList.txt";
+    // String fileList = "/home/brian/Documents/fileList.txt";
+    BufferedReader inBr = null;
     BufferedReader br = null;
     try
     {
-      br = new BufferedReader(new FileReader(fileList));
+      // input from command line path and file name of list of files
+      inBr = new BufferedReader(new InputStreamReader(System.in));
+      System.out.print("Enter the path and name of File List: ");
+      String inputFilePathName = inBr.readLine();
+      
+      br = new BufferedReader(new FileReader(inputFilePathName));
       // line example:
       // CCITT_1.TIF|/home/brian/Documents/CCITT_1.TIF|/home/brian/Documents/CCITT_1.pdf
       String line;
